@@ -1,5 +1,6 @@
 import { LLMReranker, ModelProvider, ProviderGroq, ProviderOpenAI } from ".";
 import "dotenv/config";
+import { ProviderOllama } from "./providers/ollama";
 
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
@@ -36,3 +37,8 @@ test("test openai ranker", async () => {
   const provider = new ProviderOpenAI("gpt-4", OPENAI_API_KEY);
   await testRerank(provider);
 });
+
+test("test ollama ranker", async () => {
+  const provider = new ProviderOllama("dengcao/Qwen3-Reranker-0.6B:F16", '');
+  await testRerank(provider);
+},60000);

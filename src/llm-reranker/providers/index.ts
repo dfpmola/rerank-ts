@@ -1,6 +1,7 @@
 // Export providers.
 export { ProviderGroq } from "./groq";
 export { ProviderOpenAI } from "./openai";
+export { ProviderOllama } from "./ollama";
 
 export interface ModelUsage {
   completionTime?: number;
